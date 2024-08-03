@@ -15,4 +15,7 @@ class Cart extends Model
     {
         return $this->belongsTo(Product::class);
     }
+    public function invoice(){
+        return $this->hasOne(Invoice::class);
+    }
 }
