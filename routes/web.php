@@ -33,7 +33,6 @@ Route::get('/cart', [CartController::class, 'index'])->middleware(['auth', 'veri
 Route::post('/checkout', [PaymentController::class, 'checkout']);
 Route::delete('/cart/remove/{id}', [CartController::class, 'remove'])->name('cart.remove');
 Route::get('/payment/finish', [PaymentController::class, 'finish'])->name('payment.finish');
-Route::get('/dashboard', [ProductController::class, 'index2'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
