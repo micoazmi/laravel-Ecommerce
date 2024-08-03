@@ -26,7 +26,7 @@
             z-index: 1000;
         }
         .content {
-            margin-top: 60px; /* Space for fixed navbar */
+            margin-top: 70px; /* Adjust space for fixed navbar */
             width: 100%;
             max-width: 600px;
             padding: 20px;
