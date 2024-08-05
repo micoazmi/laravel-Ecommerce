@@ -47,6 +47,7 @@
             <a href="/">MyStore</a>
         </div>
         <div class="navbar-links">
+            <a href="{{ route('invoices.index') }}">View Invoices</a> <!-- Added link to view invoices -->
             @if (Route::has('login'))
                 @auth
                     <!-- Authentication -->
@@ -85,9 +86,6 @@
         </div>
     </div>
 
-    <!-- Add a margin to prevent content from being hidden behind the fixed navbar -->
-    <div style="margin-top: 70px;">
-        <!-- Your page content here -->
-    </div>
+
 </body>
 </html>

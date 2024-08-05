@@ -35,18 +35,18 @@
 <body>
     <h1>Checkout</h1>
     <button id="pay-button">Pay Now</button>
-    <script src="https://app.sandbox.midtrans.com/snap/snap.js" data-client-key="{{  env('MIDTRANS_CLIENT_KEY') }}"></script>
+    <script src="https://app.sandbox.midtrans.com/snap/snap.js" data-client-key="{{ env('MIDTRANS_CLIENT_KEY') }}"></script>
     <script type="text/javascript">
         document.getElementById('pay-button').onclick = function () {
             snap.pay('{{ $snapToken }}', {
                 onSuccess: function (result) {
-                    window.location.href = '/payment/finish';
+                    window.location.href = '{{ route('invoice.success', ['id' => $invoice->id]) }}';
                 },
                 onPending: function (result) {
-                    window.location.href = '/payment/finish';
+                    window.location.href = '{{ route('invoice.pending', ['id' => $invoice->id]) }}';
                 },
                 onError: function (result) {
-                    window.location.href = '/payment/finish';
+                    window.location.href = '{{ route('invoice.error', ['id' => $invoice->id]) }}';
                 }
             });
         };

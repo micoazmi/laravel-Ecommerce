@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\InvoiceController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -34,6 +35,14 @@ Route::post('/checkout', [PaymentController::class, 'checkout']);
 Route::delete('/cart/remove/{id}', [CartController::class, 'remove'])->name('cart.remove');
 Route::get('/payment/finish', [PaymentController::class, 'finish'])->name('payment.finish');
 Route::get('/product/{id}',[ProductController::class,'show'])->name('product.show');
+Route::get('/invoices/{id}', [InvoiceController::class, 'show'])->name('invoices.show');
+Route::post('/payment-notification', [InvoiceController::class, 'paymentNotification']);
+Route::get('/invoice/{id}/success', [InvoiceController::class, 'success'])->name('invoice.success');
+Route::get('/invoice/{id}/pending', [InvoiceController::class, 'pending'])->name('invoice.pending');
+Route::get('/invoice/{id}/error', [InvoiceController::class, 'error'])->name('invoice.error');
+Route::get('/invoices', [InvoiceController::class, 'index'])->name('invoices.index');
+Route::get('/invoice/{id}', [InvoiceController::class, 'show'])->name('invoice.show');
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
