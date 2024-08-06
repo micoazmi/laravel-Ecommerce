@@ -41,3 +41,5 @@ MIDTRANS_IS_PRODUCTION=false
 php artisan migrate
 php artisan db:seed --class=ProductSeeder
 php artisan serve
+
+## SQl in folder sql

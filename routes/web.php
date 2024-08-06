@@ -40,7 +40,7 @@ Route::post('/payment-notification', [InvoiceController::class, 'paymentNotifica
 Route::get('/invoice/{id}/success', [InvoiceController::class, 'success'])->name('invoice.success');
 Route::get('/invoice/{id}/pending', [InvoiceController::class, 'pending'])->name('invoice.pending');
 Route::get('/invoice/{id}/error', [InvoiceController::class, 'error'])->name('invoice.error');
-Route::get('/invoices', [InvoiceController::class, 'index'])->name('invoices.index');
+Route::get('/invoices', [InvoiceController::class, 'index'])->middleware(['auth', 'verified'])->name('invoices.index');
 Route::get('/invoice/{id}', [InvoiceController::class, 'show'])->name('invoice.show');
 
 
